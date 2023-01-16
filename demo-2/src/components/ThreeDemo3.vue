@@ -49,6 +49,7 @@ onMounted(() => {
 
 const init = () => {
   createScene()
+  initAxesHelper()
   createMesh()
   createLight()
   createCamera()
@@ -61,6 +62,11 @@ let scene, camera, renderer, controls, mesh
 
 const createScene = () => {
   scene = new THREE.Scene()
+}
+
+const initAxesHelper = () => {
+  const axesHelper = new THREE.AxesHelper(20)
+  scene.add(axesHelper)
 }
 
 const createMesh = () => {
@@ -86,12 +92,12 @@ const createLight = () => {
 
 const createCamera = () => {
   const element = document.getElementById('container')
-  const width = element.clientWidth
-  const height = element.clientWidth
+  const width = window.innerWidth
+  const height = window.innerHeight
   const k = width / height
   camera = new THREE.PerspectiveCamera(35, k, 0.1, 1000)
-  camera.position.set(-80, 60, 40)
-  camera.lookAt(new THREE.Vector3(10, 0, 0))
+  camera.position.set(30, 30, 30)
+  camera.lookAt(new THREE.Vector3(0, 0, 0))
   scene.add(camera)
 }
 
@@ -126,8 +132,8 @@ const createControls = () => {
 <style scoped>
 #container {
   position: absolute;
-  width: 1000px;
-  height: 1000px;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
 }

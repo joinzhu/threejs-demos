@@ -1,5 +1,5 @@
 <script setup>
-import ThreeDemo from './components/ThreeDemo3.vue';
+import ThreeDemo from './components/ThreeDemo4.vue'
 </script>
 
 <template>
